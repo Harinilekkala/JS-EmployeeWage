@@ -1,5 +1,5 @@
 
-//-----UC-1___To Check Status
+//-----UC-1___To Check Status------
 {
     const IS_ABSENT = 0
     let empCheck = Math.floor(Math.random() * 10) % 2;
