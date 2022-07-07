@@ -1,15 +1,20 @@
+// UC - 11 Creating Employee Payroll Details
+// UC - 12 Creating DAte And Gender
 class EmployeePayrollData
    // property
-{
+   {
     id; 
     salary;
+    gender;
+    startDate;
 
-    //constructor
-    constructor(id, name, salary)
+    constructor(...params)
     {
-        this.id = id;
-        this.name = name
-        this.salary = salary;
+        this.id = params[0];
+        this.name = params[1]
+        this.salary = params[2];
+        this.gender = params[3];
+        this.startDate = params[4];
     }
 
    // getter and setter method
@@ -25,12 +30,24 @@ class EmployeePayrollData
     // method
     DisplayEmpDetails()
     {
-        return "Id: " + this.id + "\t\tName: " + this.name + "\t\tSalary: " + this.salary;
+        const DateFormat = { year: 'numeric' , month: 'long' , day: 'numeric'};
+        const empDate = this.startDate === undefined ? "undefined" :
+                        this.startDate.toLocaleDateString("en-US" , DateFormat)
+        return "id= " + this.id + "\t\tName: " + this.name + "\t\tSalary: " + this.salary + 
+                "\t\tGender: " + this.gender +"\t\tStartDate : " +empDate;
     }
 }
 {
-    let empdata = new EmployeePayrollData(1, "Harini", 20000);
+    let empdata = new EmployeePayrollData(1, "Harini", 20000 , 'F');
     console.log(empdata.DisplayEmpDetails());
-    empdata.name = "Harshini";
+    empdata.id = 2;
+    empdata.name = "Haritha";
+    empdata.salary = 30000;
+    empdata.gender = 'F'
     console.log(empdata.DisplayEmpDetails());
+    let empdata2 = new EmployeePayrollData(3, "Harshini", 40000 , 'F' , new Date());
+    let empdata3 = new EmployeePayrollData(4, "Hardin", 40000 , 'F' , new Date());
+    console.log(empdata2.DisplayEmpDetails());
+    console.log(empdata3.DisplayEmpDetails());   
+
 }
