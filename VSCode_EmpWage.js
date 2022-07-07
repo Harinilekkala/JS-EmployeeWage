@@ -180,3 +180,33 @@ function calculateWage(empHours)
     console.log("Days Employee is Absent: ");
     console.log(noWorkingDays);
 }
+
+//UC-10 Displaying Day,Daily Wage,Daily Hrs-----Using Object Creation
+
+let totalEmpHours = 0;
+let totalWorkingDays = 0;
+let empDailyHrsAndWageArr = new Array();
+while (totalEmpHours <= EMP_MAX_WORKINGHOURS &&
+       totalWorkingDays < EMP_MAX_WORKINGDAYS)
+{
+    totalWorkingDays++;
+    let empCheck = Math.floor(Math.random() * 10) % 3;
+    let empHours = getEmpWorkingHours(empCheck);
+    totalEmpHours = totalEmpHours + empHours;
+    empDailyHrsAndWageArr.push(
+    {
+        dayNum : totalWorkingDays,
+        dailyHours : empHours,
+        dailyWage : calculateWage(empHours),
+        toString()
+        {
+            return '\n\tDay' + this.dayNum + ' => \t Working Hours is ' + this.dailyHours +
+            '\t And Wage Earned = ' + this.dailyWage
+        },
+    
+    });
+}
+
+console.log("\n------------Uc-10 Object Creation------------\n" +empDailyHrsAndWageArr);
+
+
