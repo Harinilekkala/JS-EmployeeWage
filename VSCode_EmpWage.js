@@ -173,7 +173,7 @@ function calculateWage(empHours)
             noWorkingDays.push(key);
         }
     });
-    console.log("Days Employee worked Full Time:");
+    console.log("\nDays Employee worked Full Time:");
     console.log(fullWorkingDays);
     console.log("Days Employee worked Part Time: ");
     console.log(PartWorkingDays);
@@ -207,6 +207,37 @@ while (totalEmpHours <= EMP_MAX_WORKINGHOURS &&
     });
 }
 
-console.log("\n------------Uc-10 Object Creation------------\n" +empDailyHrsAndWageArr);
+console.log("\n---------------------Uc-10 Object Creation----------------------\n" +empDailyHrsAndWageArr);
+
+
+//UC - 11 Using Arrow Function In Object
+let totalWages = empDailyHrsAndWageArr
+                 .filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0 )
+                 .reduce((totalWages , dailyHrsAndWage) => totalWages += dailyHrsAndWage .dailyWage, 0);
+let totalHours = empDailyHrsAndWageArr
+                 .filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0 )
+                 .reduce((totalHours, dailyHrsAndWage) => totalHours +=dailyHrsAndWage.dailyHours,0);
+console.log("\n------------UC - 11(A)-----------\n\n\tDisplaying Total Hours : " +totalHours+ "\n\tDisplaying Total Wages :" +totalWages);
+
+// Uc - 11(B) Logging FullDayWork
+process.stdout.write("\n------------UC - 11(B)--------------\n\nLoggingFullDay Work");
+empDailyHrsAndWageArr.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 8)
+                     .forEach(dailyHrsAndWage => process.stdout.write(dailyHrsAndWage.toString()));
+
+// UC - 11(C) PartWorkingDayString
+let PartWorkingDaysStrArr = empDailyHrsAndWageArr
+                            .filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 4)
+                            .map(dailyHrsAndWage => dailyHrsAndWage.toString());
+console.log("\n\n------------UC - 11(C)--------------\n\nPartWorkingDayString : " +PartWorkingDaysStrArr);
+
+// UC - 11(D) NonWorkingDayNums
+let nonWorkingDayNums = empDailyHrsAndWageArr
+                        .filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0)
+                        .map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
+console.log("\n\n------------UC - 11(C)--------------\n\nNonWorkingDayNums : " +nonWorkingDayNums);
+
+                        
+                    
+
 
 
