@@ -1,6 +1,7 @@
 // UC - 11 Creating Employee Payroll Details
 // UC - 12 Creating DAte And Gender
 // UC - 13 Implementing Concept On Regex Pattern ------------ Using Try And Catch
+// UC - 14 , UC -15 Implementing employee Payroll Data VAlidation Using Regex Pattern
 
 class EmployeePayrollData
 {
@@ -173,29 +174,29 @@ class EmployeePayrollData
     try
     {
         
-        let employeePayroll = new EmployeePayrollData(1, "Harini", 20000, "F", new Date("11/10/2022").toLocaleDateString(), "abc123@gmail.com", 123456);
-        console.log(employeePayroll.DisplayEmpDetails());
-        employeePayroll = new EmployeePayrollData(2, "Harshini", 25000, "F", new Date("20/12/2021").toLocaleDateString(),"xyz@gmail.com", 789123);
-        console.log(employeePayroll.DisplayEmpDetails());
-        employeePayroll.id = 3;
-        employeePayroll.name = "Chandini";
-        employeePayroll.salary = 20000;
-        employeePayroll.gender = "F";
-        employeePayroll.startDate = new Date("10-12-2022").toLocaleDateString();
-        employeePayroll.email = "abc123@gmail.com";
-        employeePayroll.zipCode = 567234;
-        console.log(employeePayroll.DisplayEmpDetails());
+        let empdata = new EmployeePayrollData(1, "Harini", 20000, "F", new Date("11/10/2022").toLocaleDateString(), "abc123@gmail.com", 123456);
+        console.log(empdata.DisplayEmpDetails());
+        empdata = new EmployeePayrollData(2, "Harshini", 25000, "F", new Date("20/12/2021").toLocaleDateString(),"xyz@gmail.com", 789123);
+        console.log(empdata.DisplayEmpDetails());
+        empdata.id = 3;
+        empdata.name = "Chandini";
+        empdata.salary = 20000;
+        empdata.gender = "F";
+        empdata.startDate = new Date("10-12-2022").toLocaleDateString();
+        empdata.email = "abc123@gmail.com";
+        empdata.zipCode = 567234;
+        console.log(empdata.DisplayEmpDetails());
 
         console.log("\n\n-------------------------Displaying Valid Regex-----------------------------");
-        employeePayroll.id = 2;
-        employeePayroll.name = "Sai"; //The Regex Is Satisfying
-        employeePayroll.salary = 90000;
-        console.log(employeePayroll.DisplayEmpDetails());
+        empdata.id = 2;
+        empdata.name = "Sai"; //The Regex Is Satisfying
+        empdata.salary = 90000;
+        console.log(empdata.DisplayEmpDetails());
 
-        employeePayroll.id = 5;
-        employeePayroll.name = "bai"; //The Regex Is Not Satisfying
-        employeePayroll.salary = 80000;
-        console.log(employeePayroll.DisplayEmpDetails());
+        empdata.id = 5;
+        empdata.name = "bai"; //The Regex Is Not Satisfying
+        empdata.salary = 80000;
+        console.log(empdata.DisplayEmpDetails());
     }
     catch(ex)
     {
